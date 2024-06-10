@@ -1,0 +1,27 @@
+.accordion {
+  width: 100%;
+  max-width: 600px;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center; /* Alinha verticalmente o texto e a imagem */
+  justify-content: space-between; /* Coloca a imagem à direita do texto */
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-content {
+  padding: 15px;
+  display: none;
+}
