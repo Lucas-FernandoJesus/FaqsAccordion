@@ -1,27 +1,25 @@
-// scripts.js
 document.addEventListener('DOMContentLoaded', function() {
-  const headers = document.querySelectorAll('.accordion-header');
+    const headers = document.querySelectorAll('.accordion-header');
+    
+    headers.forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.icon');
   
-  headers.forEach(header => {
-      header.addEventListener('click', function() {
-          const content = this.nextElementSibling;
-          
-          if (content.style.display === 'block') {
-              content.style.display = 'none';
-          } else {
-              document.querySelectorAll('.accordion-content').forEach(item => item.style.display = 'none');
-              content.style.display = 'block';
-          }
-      });
+            if (content.style.display === 'block') {
+                // Fechar o conteúdo atual e redefinir o ícone
+                content.style.display = 'none';
+                icon.src = './assets/images/icon-plus.svg';
+            } else {
+                // Fechar todos os conteúdos e redefinir os ícones
+                document.querySelectorAll('.accordion-content').forEach(item => item.style.display = 'none');
+                document.querySelectorAll('.icon').forEach(icon => icon.src = './assets/images/icon-plus.svg');
+  
+                // Abrir o conteúdo clicado e atualizar o ícone
+                content.style.display = 'block';
+                icon.src = './assets/images/icon-minus.svg';
+            }
+        });
+    });
   });
-});
-
-function changeIcon() {
-    var icon = document.getElementById("icon");
-    if (icon.src.includes("./assets/images/icon-plus.svg")) {
-        icon.src = "./assets/images/icon-plus.svg";
-    } else {
-        icon.src = "./assets/images/icon-minus.svg";
-    }
-    icon.src = iconSrc;
-}
+  
